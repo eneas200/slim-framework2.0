@@ -1,0 +1,25 @@
+{
+  "name": "eneas200/slimframwork2.0",
+  "description": "Configuração basica para um projeto PHP",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Eneas Sena",
+      "email": "desenvolvedoreneas2000@gmail.com",
+      "role": "developers"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Main\\": "src/"
+    },
+    "files": [
+      "src/Config/Config.php",
+      "src/Config/Route.php"
+    ]
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "slim/slim": "2.0"
+  }
+}
