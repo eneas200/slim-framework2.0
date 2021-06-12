@@ -1,33 +1,31 @@
 <?php 
-
+// chamada das classes;
 use Slim\Slim;
+use Main\Controller\Homepage;
+use Main\Controller\ContactPage;
 
+
+// instance do objeto Slim;
 $app = new Slim();
 
 
-$app->get('/:name', function($name) {
-    $data = [
-        "name" => "Marina",
-        "email" => "marina@gmail.com",
-        "telefone" => "12222-5555"
-    ];
+// Rota da Page Contact;
+$app->get('/contact', function() {
 
-    if($data['name'] == $name) {
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
-    } else {
-        Echo "
-            <script>
-                alert('Registro nao encontrado');
-            </script>
-            ";
-    }
+    $contact = new ContactPage;
+
+    $contact-> index();
+    
 });
 
-
+// Rota que carrega a page Index;
 $app->get('/', function() {
-    echo "<p>page inicial</p>";
+    
+    $page = new HomePage;
+
+    $page->index();
+
 });
 
+// executa as rotas;
 $app->run();
