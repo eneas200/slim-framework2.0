@@ -14,13 +14,16 @@
       "Main\\": "src/"
     },
     "files": [
-      "src/Config/Config.php",
-      "src/Config/Route.php"
+      "src/Config/Config.php"
     ]
   },
   "minimum-stability": "dev",
   "require": {
-    "slim/slim": "2.0",
-    "rain/raintpl": ">=3.0.0"
+    "slim/slim": "4.*",
+    "slim/psr7": "dev-master",
+    "nyholm/psr7": "^1.5",
+    "nyholm/psr7-server": "dev-master",
+    "guzzlehttp/psr7": "^2",
+    "laminas/laminas-diactoros": "2.21.x-dev"
   }
 }
