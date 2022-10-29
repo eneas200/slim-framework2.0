@@ -6,7 +6,6 @@
 
 # Tecnologias Usadas:
   * Slim Framework 2.0: https://www.slimframework.com/docs/v2/
-  * Rain Tpl GitHub: https://github.com/feulf/raintpl3
 
 
 # Desenvolvedor Enéas Sena
