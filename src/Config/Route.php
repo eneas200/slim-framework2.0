@@ -37,6 +37,13 @@ $app->get('/', function (Request $request, Response $response) {
 });
 
 
-
+$app->post('/users', function (Request $request, Response $response) {
+    
+    $bodyData = $request->getParsedBody();
+    var_dump($bodyData);
+    $response->getBody()->write("route post");
+    
+    return $response;
+});
 
 $app->run();
