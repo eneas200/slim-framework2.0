@@ -8,34 +8,30 @@ use Slim\Factory\AppFactory;
 
 $app = AppFactory::create();
 
+$app->addRoutingMiddleware();
 
+session_start();
+
+
+// atribui um atributo de session
 $app->add(function(Request $request, RequestHandler $handler){
-    $headers = $request->getHeaders();
-    foreach($headers as $name => $values) {
-        echo "<p>".$name.":".implode(", ", $values)."</p>";
-    }
-
-    // obtem um cabeçario
-    $accept = $request->getHeader("Accept");
-    echo "<p>Header Accept:</p>";
-    $accept = explode(",", implode(',', $accept));
-    foreach ($accept as $key => $value) {
-        print "<p>{$key}:{$value}</p>";
-    }
-
-
+    
+    // $_SESSION["message"] = "Seja Bem Vindo!";
+    $request = $request->withAttribute("session", new stdClass);
+    
     return $handler->handle($request);
 });
 
 
-$app->get('/', function (Request $request, Response $response) {
-    $message = "App SlimFramework 4.0";
-    echo "<p>function</p>";
-    $response->getBody()->write($message);
-    
-    return $response;
-});
-
+// Retornando json
+$app->get('/pong', function (Request $request, Response $response) {
+    $payload = array("age" => 15, "name"=> "Maria");
+    $body = json_encode($payload);
+     
+    $response->getBody()->write($body);
+    return $response
+        ->withHeader("Content-Type", "application/json");
+}); 
 
 $app->post('/users', function (Request $request, Response $response) {
     
@@ -45,5 +41,8 @@ $app->post('/users', function (Request $request, Response $response) {
     
     return $response;
 });
+
+
+$errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 $app->run();
