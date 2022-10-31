@@ -24,6 +24,7 @@
     "nyholm/psr7": "^1.5",
     "nyholm/psr7-server": "dev-master",
     "guzzlehttp/psr7": "^2",
-    "laminas/laminas-diactoros": "2.21.x-dev"
+    "laminas/laminas-diactoros": "2.21.x-dev",
+    "coffeecode/datalayer": "dev-master"
   }
 }
